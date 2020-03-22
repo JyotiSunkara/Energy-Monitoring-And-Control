@@ -1,0 +1,26 @@
+{
+  "name": "krbapplication",
+  "version": "1.0.0",
+  "description": "Application to monitor and control AC units in KRB",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix ../FRONTEND",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Jyoti Sunkara",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.0",
+    "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.4",
+    "mongoose": "^5.9.2",
+    "nodemon": "^2.0.2",
+    "python-shell": "^1.0.8"
+  }
+}
