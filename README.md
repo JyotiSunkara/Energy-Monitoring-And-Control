@@ -39,7 +39,7 @@ The `nodejs` package has both the `node` and `npm` binaries.
 
 Install the community edition [here](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials).
 
-### The following system requirements are for the **BACnet** backend componant:
+The following system requirements are for the **BACnet** backend componant:
 
 ###  Python `(2.7.17)`
 
@@ -66,7 +66,7 @@ On Linux:
     pip install smap
 ```
 
-### The following system requirements are for the **HOBOlink** backend componant:
+The following system requirements are for the **HOBOlink** backend componant:
 
 ### Python`(3.X)`
 
@@ -81,7 +81,7 @@ sudo apt-get install python3 python3-pip
 
 ## Setup
 
-### To set up the **BACnet** backend componant follow the following steps:
+To set up the **BACnet** backend componant follow the following steps:
 
 ###  Library Packages
 
@@ -107,7 +107,7 @@ python bacnet-scan.py
 ```
 If there are no errors , it means pybacnet and all the dependancies required for BACnet communication have been installed correctly.
 
-### To setup the backend **HOBOlink** componant the following steps must be followed:
+To setup the backend **HOBOlink** componant the following steps must be followed:
 
 ### Libraries 
 
@@ -158,9 +158,61 @@ Navigate to localhost:3000/ in your browser to view and use the application!
 
 ## Important Scripts
 ### BACnet
-### HOBOlink
+These scripts can be found at:
+```
+    cd dass05/src/BACnet
+```
 
-## 
+* `bacnet-scan.py`: Get the current data of all ACs, thats 28 properties each of 77 ACs.
+* `changetemp.py`: Change temperature of an AC. 
+    <br> Run as: 
+    ```bash
+        python changetemp.py <AC Number> <Desired Temperature>
+    ```
+* `checkstatus.py`: Check status of an AC. 
+  <br> Run as:
+    ```bash
+        python checkstatus.py <AC Number>
+    ```
+* `checktemp.py`: Check temperature of an AC. 
+  <br> Run as:
+    ```    
+        python checktemp.py <AC Number>
+    ```
+* `logdata.py`: 
+  It logs ACs data when connected to a local mongodb database that is currently set up on the local system at KRB. Data every 10 mins using cronjob syscall and stored it locally.
+
+* `off.py`: Switch off an AC. 
+  <br> Run as:
+    ```
+        python off.py <AC Number>
+    ```
+
+* `on.py`: Switch on an AC. 
+  <br> Run as:
+    ```
+        python on.py <AC Number> 
+    ```
+
+### HOBOlink
+These scripts plot data extracted from the Hobolink cloud can be found at:
+```
+    cd dass05/src/BACnet
+```
+
+* `daily_HOBOlink.py`: Plots graphs for each of 8 properties using data of the last 24 hours. 
+  
+* `properties_HOBOlink.py`: Plots one graph for the past month data of all 8 properties.
+  
+* `versus_HOBOlink.py`: Plots graphs of a combination of two properties using past 24 hours data.
+  
+## Features
+### HOBOlink graphs
+### AC Control
+### Request for AC Control
+### View Temperature
+### Email Alert
+
 ## Further Work
 - [ ] Automation of email alert based on overuse data
 - [ ] 3D visualization for the overview of KRB
