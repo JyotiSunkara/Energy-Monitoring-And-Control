@@ -74,11 +74,6 @@ On Linux:
 ```
 sudo apt-get install python3 python3-pip
 ```
-
-
-
-
-
 ## Setup
 
 To set up the **BACnet** backend componant follow the following steps:
@@ -197,7 +192,7 @@ These scripts can be found at:
 ### HOBOlink
 These scripts plot data extracted from the Hobolink cloud can be found at:
 ```
-    cd dass05/src/BACnet
+    cd dass05/src/HOBOlink
 ```
 
 * `daily_HOBOlink.py`: Plots graphs for each of 8 properties using data of the last 24 hours. 
@@ -207,14 +202,59 @@ These scripts plot data extracted from the Hobolink cloud can be found at:
 * `versus_HOBOlink.py`: Plots graphs of a combination of two properties using past 24 hours data.
   
 ## Features
+
+The user can register and login as a space user which means he or she has access rights to his/her floor only.
+
+![SpaceUser](./media/SpaceUser.gif)
+
+The user can register and login as a administrator which means he or she has access rights to all floors only.
+
+![Administrator](./media/Admin.gif)
+
 ### HOBOlink graphs
+
+HOBOlink is a web-enabled software platform designed for HOBO RX3000/MicroRX Remote Monitoring Systems and HOBOnet Field Monitoring Systems. Our application retrieves data from the Remote Monitoring System on the roof of the KRB building on campus and plots the past 24 hour data of the 8 available properties:
+    * Wind Direction    * RH
+    * Wind Speed        * Dew Point
+    * Temperature       * Solar Radiation
+    * Battery           * Gust Speed
+
+![HOBOlink](./media/HOBOlink.gif)
+
 ### AC Control
+
+The Admistrator can control the AC of a particular floor as seen below.
+
+![Control](./media/ControlAC.gif)
+
 ### Request for AC Control
-### View Temperature
+
+The space user can place a request to control the AC of a particular floor/wing as seen below.
+
+![Request](./media/RequestControl.gif)
+
+These request are either granted permission or dismissed by the administrator.
+
+![Aprroval](./media/RequestNotifs.gif)
+
 ### Email Alert
+
+The administrator can send an email alert to the users in the event of overuse/misuse. The email is triggered by a button click.
+
+![Email](./media/EmailSend.gif)
+
+//Add screenshot of email here
 
 ## Further Work
 - [ ] Automation of email alert based on overuse data
 - [ ] 3D visualization for the overview of KRB
 - [ ] Occupancy sensor integration
 - [ ] WattNode sensor integration
+
+## Authors 
+
+@SwastikMurawat
+@JyotiSunkara
+@FanishJain
+@SartakPeriwal
+@PranavTadimeti
