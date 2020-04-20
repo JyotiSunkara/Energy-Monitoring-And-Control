@@ -15,6 +15,16 @@ It is recommeded that the following two commands are run before installation on 
 sudo apt-get update -y
 sudo apt-get upgrade -y
 ```
+## Virtual Environment
+A virtual environment is a tool that helps to keep dependencies required by different projects separate by creating isolated python virtual environments for them. Virtual Environment should be used whenever you work on any Python based project.
+And in order to create your virtual environtment follow these steps:
+```
+    pip install virtualenv
+    virtualenv <Name Of Environment>
+    source virtualenv_name/bin/activate
+```
+Then continue with the following steps to setup and run the application.
+A referance can be found [here](https://www.geeksforgeeks.org/python-virtual-environment/)
 
 ## System Requirements
 
