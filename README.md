@@ -253,6 +253,11 @@ The user can register and login as a administrator which means he or she has acc
 
 ![Administrator](./media/Admin.gif)
 
+### Social Media Authentication
+
+Athentication via google accounts can be done to log into the dashboard.
+![Social.gif](./media/Social.gif)
+
 ### HOBOlink graphs
 
 HOBOlink is a web-enabled software platform designed for HOBO RX3000/MicroRX Remote Monitoring Systems and HOBOnet Field Monitoring Systems. Our application retrieves data from the Remote Monitoring System on the roof of the KRB building on campus and plots the past 24 hour data of the 8 available properties:
