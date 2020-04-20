@@ -39,7 +39,14 @@ sudo apt-get install -y nodejs
 ```
 The `nodejs` package has both the `node` and `npm` binaries.
 
-How to run npm Behind A Proxy Server [here](https://www.freecodecamp.org/forum/t/how-to-run-npm-behind-a-proxy-server-a-step-by-step-guide/19386)
+> How to run npm Behind A Proxy Server
+Once you have obtained the proxy settings (server URL, port, username and password); you need to configure your npm configurations as follows.
+```
+    npm config set proxy http://<username>:<password>@<proxy-server-url>:<port>
+    npm config set https-proxy http://<username>:<password>@<proxy-server-url>:<port>
+```
+
+A detailed referance can be found [here](https://www.freecodecamp.org/forum/t/how-to-run-npm-behind-a-proxy-server-a-step-by-step-guide/19386)
 
 ###  MongoDB
 
