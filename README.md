@@ -46,7 +46,11 @@ Once you have obtained the proxy settings (server URL, port, username and passwo
     npm config set proxy http://<username>:<password>@<proxy-server-url>:<port>
     npm config set https-proxy http://<username>:<password>@<proxy-server-url>:<port>
 ```
-
+Proxy can be deleted by running the following commands.
+```
+    npm config delete proxy
+    npm config delete https-proxy
+```
 A detailed referance can be found [here](https://www.freecodecamp.org/forum/t/how-to-run-npm-behind-a-proxy-server-a-step-by-step-guide/19386)
 
 ###  MongoDB
