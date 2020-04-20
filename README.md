@@ -21,7 +21,7 @@ And in order to create your virtual environtment follow these steps:
 ```
     pip install virtualenv
     virtualenv <Name Of Environment>
-    source virtualenv_name/bin/activate
+    source <Name Of Environment>/bin/activate
 ```
 Then continue with the following steps to setup and run the application.
 A referance can be found [here](https://www.geeksforgeeks.org/python-virtual-environment/)
