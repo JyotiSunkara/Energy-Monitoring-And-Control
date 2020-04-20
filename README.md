@@ -53,6 +53,18 @@ A detailed referance can be found [here](https://www.freecodecamp.org/forum/t/ho
 
 Install the community edition [here](https://docs.mongodb.com/manual/installation/#mongodb-community-edition-installation-tutorials).
 
+For Ubuntu 16.04 (Xenial) Linux distribution:
+```
+    wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+    sudo apt-get install gnupg
+    echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+```
+Issue the following command to reload the local package database and install the latest stable version.
+```
+    sudo apt-get update
+    sudo apt-get install -y mongodb-org
+```
+
 The following system requirements are for the **BACnet** backend componant:
 
 ###  Python `(2.7.17)`
@@ -165,6 +177,8 @@ Open a new terminal window `(Ctrl + Shift + T)` and run the following commands
    
 Navigate to localhost:3000/ in your browser to view and use the application!
 
+The table of AC unit mapping categorised by floors can be found [here](https://docs.google.com/spreadsheets/d/10AdjG84STh8zIIMlpu9XHGkiaz8o0GtFspJXN-ukKtU/edit?usp=sharing)
+
 ## Important Scripts
 ### BACnet
 These scripts can be found at:
@@ -228,16 +242,20 @@ The user can register and login as a administrator which means he or she has acc
 ### HOBOlink graphs
 
 HOBOlink is a web-enabled software platform designed for HOBO RX3000/MicroRX Remote Monitoring Systems and HOBOnet Field Monitoring Systems. Our application retrieves data from the Remote Monitoring System on the roof of the KRB building on campus and plots the past 24 hour data of the 8 available properties:
-    * Wind Direction    * RH
-    * Wind Speed        * Dew Point
-    * Temperature       * Solar Radiation
-    * Battery           * Gust Speed
+    * Wind Direction    
+    * RH
+    * Wind Speed        
+    * Dew Point
+    * Temperature       
+    * Solar Radiation
+    * Battery           
+    * Gust Speed
 
 ![HOBOlink](./media/HOBOlink.gif)
 
 ### AC Control
 
-The Admistrator can control the AC of a particular floor as seen below.
+The Admistrator can control the AC of a particular floor as seen below. 
 
 ![Control](./media/ControlAC.gif)
 
