@@ -23,6 +23,10 @@ sudo apt-get upgrade -y
 For Linux: 
 ```bash
 sudo apt-get install git -y
+# Configure the username, replace First Last:
+git config --global user.name "First Last"
+# Configure the email, replace example@example.com:
+git config --global user.email "example@example.com"
 ```
 [Intstall and configure git](https://www.linode.com/docs/development/version-control/how-to-install-git-and-clone-a-github-repository/).
 
