@@ -40,6 +40,7 @@ sudo apt-get install -y nodejs
 The `nodejs` package has both the `node` and `npm` binaries.
 
 > How to run npm Behind A Proxy Server
+
 Once you have obtained the proxy settings (server URL, port, username and password); you need to configure your npm configurations as follows.
 ```
     npm config set proxy http://<username>:<password>@<proxy-server-url>:<port>
