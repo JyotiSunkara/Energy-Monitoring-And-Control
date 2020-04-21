@@ -297,7 +297,7 @@ The administrator can send an email alert to the users in the event of overuse/m
 
 ![Email](./media/EmailSend.gif)
 
-//Add screenshot of email here
+
 
 ## Further Work
 - [ ] Automation of email alert based on overuse data
