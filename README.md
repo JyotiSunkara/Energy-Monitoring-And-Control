@@ -191,7 +191,10 @@ Open a new terminal window `(Ctrl + Shift + T)` and run the following commands
    
 Navigate to localhost:3000/ in your browser to view and use the application!
 
-The table of AC unit mapping categorised by floors can be found [here](https://docs.google.com/spreadsheets/d/10AdjG84STh8zIIMlpu9XHGkiaz8o0GtFspJXN-ukKtU/edit?usp=sharing)
+The table of AC unit mapping categorised by floors can be found [here](https://docs.google.com/spreadsheets/d/10AdjG84STh8zIIMlpu9XHGkiaz8o0GtFspJXN-ukKtU/edit?usp=sharing).
+There are 77 ACs in the table.
+4 ACs under Third Floor, Wing 3 are yet to be mapped.
+The AC numbered F-18 in Second floor, Wing 2 is not functional.
 
 ## Important Scripts
 ### BACnet
