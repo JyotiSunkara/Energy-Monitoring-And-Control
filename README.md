@@ -286,7 +286,7 @@ The space user can place a request to control the AC of a particular floor/wing 
 
 These request are either granted permission or dismissed by the administrator.
 
-![Aprroval](./media/RequestNotifs.gif)
+![Aprroval](./media/Notifs.gif)
 
 ### Email Alert
 
