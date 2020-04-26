@@ -11,7 +11,7 @@ process.env.SECRET_KEY = 'secret'
 
 users.post('/register', (req, res) => {
   const today = new Date()
-  console.log(req.body)
+  // console.log(req.body)
   const userData = {
     first_name: req.body.first_name,
     last_name: req.body.last_name,
@@ -44,6 +44,7 @@ users.post('/register', (req, res) => {
             })
         })
       } else {
+        console.log('User already exists')
         res.json({ error: 'User already exists' })
       }
     })
@@ -91,7 +92,7 @@ users.post('/login', (req, res) => {
 
 users.get('/profile', (req, res) => {
   var decoded = jwt.verify(req.headers['authorization'], process.env.SECRET_KEY)
-  console.log('some problem')
+  // console.log('some problem')
   User.findOne({
     _id: decoded._id
   })
@@ -109,7 +110,7 @@ users.get('/profile', (req, res) => {
 })
 
 users.post('/list', (req, res) => {
- console.log(req.body)
+//  console.log(req.body)
 
   User.find({
     email: req.body.Email
@@ -124,14 +125,67 @@ users.post('/list', (req, res) => {
 })
 users.post('/update',(req,res)=>{
   console.log(req.body)
-  User.update({email:req.body.Email},{$set:{list:req.body.list}})
+  User.updateOne({email:req.body.Email},{$set:{list:req.body.list}})
   .then(user=>console.log(user))
   .catch(()=>console.log("User update ERROR!!!"))
 })
 users.route('/').get((req,res)=>{
+  console.log("HELLO 123")
   User.find()
       .then(users=>{res.json(users);
       console.log(users)})
       .catch(err=>res.status(400).json('Error: '+err));
 });
+
+users.post('/passwordupdate',(req,res)=>{
+  // console.log(req.body)
+
+  // User.update({email:req.body.email},{$set:{password:req.body.password}})
+  // .then(users=>{
+  //   console.log("Password changed")
+  //   console.log(users)
+  // })
+  // .catch(err=>
+  //   console.log(err)
+  // )
+  bcrypt.hash(req.body.password, 10, (err, hash) => {
+    req.body.password = hash
+    console.log(req.body)    
+    User.find({email:req.body.email})
+    .then(user=>{
+      // console.log(user)
+      // console.log(user[0]["password"])
+      bcrypt.compare(req.body.previous,user[0].password,(err,ismatch)=>{
+        // console.log(ismatch)
+        if(!ismatch)
+        {
+          res.json("Old Password doesn't match")
+        }
+        else{
+          User.updateOne({email:req.body.email},{$set:{password:req.body.password}})
+          .then(users => {
+            res.json("Password changed")
+            // console.log(users)
+            
+          })
+          .catch(err => {
+            res.send('error: ' + err)
+          })
+        }
+      })
+    })
+      
+
+    
+  })
+});
+
+users.post('/save',(req,res)=>{
+  User.updateOne({email:req.body.email},{$set:{floor:req.body.floor,lab:req.body.lab}})
+  .then((user)=>{
+    console.log("UPDATED")
+    // console.log(user)
+  })
+});
+
 module.exports = users

@@ -129,7 +129,7 @@ l=[]
 for X in range(1, 9):
     label=[]
     point=[]
-    for i in range(len(propertyList[0])-80,len(propertyList[0])):
+    for i in range(len(propertyList[0])):
         label.append(propertyList[0][i])
         point.append(propertyList[X][i])
     x=[]

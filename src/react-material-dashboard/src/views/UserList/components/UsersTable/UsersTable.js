@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -16,9 +16,10 @@ import {
   TableHead,
   TableRow,
   Typography,
-  TablePagination
+  TablePagination,
+  Button
 } from '@material-ui/core';
-
+import axios from 'axios';
 import { getInitials } from 'helpers';
 
 const useStyles = makeStyles(theme => ({
@@ -42,16 +43,23 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const UsersTable = props => {
-  const { className, users, ...rest } = props;
+  let { className, users, ...rest } = props;
 
   const classes = useStyles();
-
+  console.log("YES "+props.search)
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [page, setPage] = useState(0);
-
+  const [userlist,setuserlist]=useState([]);
+  useEffect(() => {
+    console.log("START")
+    axios.get('http://localhost:5000/users/')
+    .then(user=>{
+      console.log("END")
+      setuserlist(user.data)})
+  }, [])
   const handleSelectAll = event => {
-    const { users } = props;
+    
 
     let selectedUsers;
 
@@ -91,6 +99,24 @@ const UsersTable = props => {
   const handleRowsPerPageChange = event => {
     setRowsPerPage(event.target.value);
   };
+  // console.log("USERLIST")
+  // console.log(userlist)
+  users=userlist.filter(function(user){
+    return user.position=="space" && (user.first_name.startsWith(props.search)||props.search=='')
+  })
+  // console.log(users)
+  // console.log("PAGE "+page)
+
+  const handleSendEmail =(event,name,email)  => {
+    let info={
+      name: name,
+      email:email
+    }
+    axios.post('http://localhost:5000/email/send',info)
+    .then(console.log("SUCCESFULLY SENT!!"))
+    // console.log(name)
+    
+  }
 
   return (
     <Card
@@ -104,25 +130,17 @@ const UsersTable = props => {
               <TableHead>
                 <TableRow>
                   <TableCell padding="checkbox">
-                    <Checkbox
-                      checked={selectedUsers.length === users.length}
-                      color="primary"
-                      indeterminate={
-                        selectedUsers.length > 0 &&
-                        selectedUsers.length < users.length
-                      }
-                      onChange={handleSelectAll}
-                    />
+                   
                   </TableCell>
                   <TableCell>Name</TableCell>
                   <TableCell>Email</TableCell>
-                  <TableCell>Location</TableCell>
-                  <TableCell>Phone</TableCell>
-                  <TableCell>Registration date</TableCell>
+                  <TableCell>Send Email</TableCell>
+                  
                 </TableRow>
               </TableHead>
               <TableBody>
-                {users.slice(0, rowsPerPage).map(user => (
+                {users.slice((page)*rowsPerPage, (page+1)*rowsPerPage).map(user => (
+                  
                   <TableRow
                     className={classes.tableRow}
                     hover
@@ -130,33 +148,23 @@ const UsersTable = props => {
                     selected={selectedUsers.indexOf(user.id) !== -1}
                   >
                     <TableCell padding="checkbox">
-                      <Checkbox
-                        checked={selectedUsers.indexOf(user.id) !== -1}
-                        color="primary"
-                        onChange={event => handleSelectOne(event, user.id)}
-                        value="true"
-                      />
+                     
+                    </TableCell>
+                    
+                    <TableCell>{user.first_name+" "+user.last_name}</TableCell>
+                    <TableCell>
+                      {user.email}
                     </TableCell>
                     <TableCell>
-                      <div className={classes.nameContainer}>
-                        <Avatar
-                          className={classes.avatar}
-                          src={user.avatarUrl}
-                        >
-                          {getInitials(user.name)}
-                        </Avatar>
-                        <Typography variant="body1">{user.name}</Typography>
-                      </div>
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      onClick={(event)=>handleSendEmail(event,user.first_name,user.email)}
+                    >
+                      Send Email
+                    </Button>
                     </TableCell>
-                    <TableCell>{user.email}</TableCell>
-                    <TableCell>
-                      {user.address.city}, {user.address.state},{' '}
-                      {user.address.country}
-                    </TableCell>
-                    <TableCell>{user.phone}</TableCell>
-                    <TableCell>
-                      {moment(user.createdAt).format('DD/MM/YYYY')}
-                    </TableCell>
+                  
                   </TableRow>
                 ))}
               </TableBody>

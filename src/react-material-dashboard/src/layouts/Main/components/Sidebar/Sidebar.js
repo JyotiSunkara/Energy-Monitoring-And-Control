@@ -64,6 +64,11 @@ console.log(user)
       icon: <TextFieldsIcon />
     },
     {
+      title: 'View',
+      href: '/products',
+      icon: <ShoppingBasketIcon />
+},
+    {
       title: 'User Request',
       href: '/icons',
       icon: <ImageIcon />
@@ -73,16 +78,8 @@ console.log(user)
       href: '/users',
       icon: <PeopleIcon />
     },
-    {
-      title: 'View',
-      href: '/products',
-      icon: <ShoppingBasketIcon />
-    },
-    {
-      title: 'Authentication',
-      href: '/sign-in',
-      icon: <LockOpenIcon />
-    },
+    
+    
     {
       title: 'Account',
       href: '/account',
@@ -96,44 +93,65 @@ console.log(user)
   ];
 }
 else if(user=="space"){
-   pages = [
-    {
-      title: 'Dashboard',
-      href: '/dashboard',
-      icon: <DashboardIcon />
-    },
-    {
-      title: 'Control AC',
-      href: '/typography',
-      icon: <TextFieldsIcon />
-    },
-   
-    {
-      title: 'Users',
-      href: '/users',
-      icon: <PeopleIcon />
-    },
-    {
-      title: 'View',
-      href: '/products',
-      icon: <ShoppingBasketIcon />
-    },
-    {
-      title: 'Authentication',
-      href: '/sign-in',
-      icon: <LockOpenIcon />
-    },
-    {
-      title: 'Account',
-      href: '/account',
-      icon: <AccountBoxIcon />
-    },
-    {
-      title: 'Settings',
-      href: '/settings',
-      icon: <SettingsIcon />
-    }
-  ];
+  if(localStorage.getItem("google")==1)
+  {
+    pages = [
+      {
+        title: 'Dashboard',
+        href: '/dashboard',
+        icon: <DashboardIcon />
+      },
+      {
+        title: 'Control AC',
+        href: '/typography',
+        icon: <TextFieldsIcon />
+      },
+    
+      {
+           title: 'View',
+           href: '/products',
+           icon: <ShoppingBasketIcon />
+     },
+    
+      {
+        title: 'Account',
+        href: '/account',
+        icon: <AccountBoxIcon />
+      },
+     
+    ]
+  }
+  else{
+    pages = [
+      {
+        title: 'Dashboard',
+        href: '/dashboard',
+        icon: <DashboardIcon />
+      },
+      {
+        title: 'Control AC',
+        href: '/typography',
+        icon: <TextFieldsIcon />
+      },
+      {
+        title: 'View',
+        href: '/products',
+        icon: <ShoppingBasketIcon />
+  },
+      
+    
+      {
+        title: 'Account',
+        href: '/account',
+        icon: <AccountBoxIcon />
+      },
+      {
+        title: 'Settings',
+        href: '/settings',
+        icon: <SettingsIcon />
+      }
+    ]
+  }
 }
   return (
     <Drawer
@@ -167,3 +185,44 @@ Sidebar.propTypes = {
 };
 
 export default Sidebar;
+
+// {
+//   title: 'Dashboard',
+//   href: '/dashboard',
+//   icon: <DashboardIcon />
+// },
+// {
+//   title: 'Control AC',
+//   href: '/typography',
+//   icon: <TextFieldsIcon />
+// },
+// {
+//   title: 'User Request',
+//   href: '/icons',
+//   icon: <ImageIcon />
+// },
+// {
+//   title: 'Users',
+//   href: '/users',
+//   icon: <PeopleIcon />
+// },
+// {
+//   title: 'View',
+//   href: '/products',
+//   icon: <ShoppingBasketIcon />
+// },
+// {
+//   title: 'Authentication',
+//   href: '/sign-in',
+//   icon: <LockOpenIcon />
+// },
+// {
+//   title: 'Account',
+//   href: '/account',
+//   icon: <AccountBoxIcon />
+// },
+// {
+//   title: 'Settings',
+//   href: '/settings',
+//   icon: <SettingsIcon />
+// }

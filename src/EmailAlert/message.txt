@@ -1,0 +1,9 @@
+
+Dear ${PERSON_NAME},
+
+This is an automated test message sent using an SMTP server.
+I have no one I am comfortable sending SMTP mails to but you 
+and I miss you, and I wish we didn't fight so much.
+
+Yours Truly
+

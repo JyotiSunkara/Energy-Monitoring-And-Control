@@ -1,9 +1,16 @@
 # Energy-Monitoring-And-Control
 A user application to monitor and control the energy usage in Kohli Research Block, International Institute Of Information Technology, Hyderabad
 
+## Requirements Analysis 
+## 
+
+
+## User Manual
+
 These instructions will get you a copy of the project up and running on your local machine. You will be able to access, based on your permissions alloted to you, the following features:
 | | |
 | --- | --- |
+|Social Media Authentication | All Users |
 |HOBOlink graphs | All Users |
 | AC Control | Administrator, Space User |
 | Request For AC Control | Space User |
@@ -302,8 +309,8 @@ The administrator can send an email alert to the users in the event of overuse/m
 ## Further Work
 - [ ] Automation of email alert based on overuse data
 - [ ] 3D visualization for the overview of KRB
-- [ ] Occupancy sensor integration
-- [ ] WattNode sensor integration
+- [ ] Occupancy sensor integration/ analytics
+- [ ] WattNode sensor integration/ analytics
 
 ## Authors 
 

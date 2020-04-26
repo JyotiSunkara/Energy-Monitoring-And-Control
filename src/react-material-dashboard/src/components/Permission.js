@@ -33,11 +33,12 @@ class Permission extends Component{
   
     }
     componentDidMount(){
+        
         this.getlist()
 
         this.interval = setInterval(() => {
             this.getlist();
-          }, 2000);
+          }, 5000);
 
 
     }
@@ -47,9 +48,10 @@ class Permission extends Component{
 
     getlist()
     {
+        console.log("START GET LIST")
         axios.get('http://localhost:5000/request/')
-    .then(res=>{
-        // console.log(res.data)
+        .then(res=>{
+        console.log(res.data)
         this.setState({requestlist:res.data,length:res.data.length})
     })
     .catch(err=>console.log("Some kind of error is there"))
@@ -62,12 +64,14 @@ class Permission extends Component{
         var info={
             Email:this.state.requestlist[index].Email
         }
+        var ac_index=this.state.requestlist[index].ac
+        this.dismiss(index);
         axios.post('http://localhost:5000/users/list',info)
         .then(res=>{
             console.log(res.data[0])
             list=res.data[0].list
 
-            list.push(this.state.requestlist[index].ac)
+            list.push(ac_index)
             var info1={
                 list:list,
                 Email:res.data[0].email
@@ -78,7 +82,6 @@ class Permission extends Component{
             .catch(()=>console.log("ERROR"))
         //    let f= this.state.requestlist.splice(index,1)
             // console.log(f)
-            this.dismiss(index)
         })
         .catch(()=>console.log("SOME KIND OF PROBLEM IN PERMISSION.js "))
     }
@@ -89,12 +92,18 @@ class Permission extends Component{
             ac:this.state.requestlist[index].ac
         }
         axios.post('http://localhost:5000/request/delete',info)
-        .then(res=>{console.log("DELETED")
-           })
-        .catch(()=>console.log("SOME KIND OF ERROR"))
+        .then(()=>{
+            console.log("START GET LIST")
+            axios.get('http://localhost:5000/request/')
+            .then(res=>{
+            console.log(res.data)
+            this.setState({requestlist:res.data,length:res.data.length})
+        })
+    })
         // this.getlist()
     }
     render(){
+        console.log("LIST")
         console.log(this.state.requestlist)
         let array=[]
         for(let i=0;i<this.state.length;i++)
@@ -103,7 +112,7 @@ class Permission extends Component{
                 <div>
                 <Card style={{ width: '30rem' }}>
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    
                     <Card.Subtitle className="mb-2 text-muted">Request</Card.Subtitle>
                     <Card.Text>
                     User with email id {this.state.requestlist[i].Email} wants to control the Ac no. {this.state.requestlist[i].ac}

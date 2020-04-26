@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{ useState }from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/styles';
@@ -30,9 +30,15 @@ const useStyles = makeStyles(theme => ({
 
 const UsersToolbar = props => {
   const { className, ...rest } = props;
-
+  const [searchvalue,setvalue]=useState('')
   const classes = useStyles();
-
+  console.log(props)
+  console.log("SEARCH "+props.search)
+  
+  const handlevalue=(event)=>{
+    setvalue(event.target.value)
+    props.setsearch(event.target.value)
+  }
   return (
     <div
       {...rest}
@@ -40,19 +46,14 @@ const UsersToolbar = props => {
     >
       <div className={classes.row}>
         <span className={classes.spacer} />
-        <Button className={classes.importButton}>Import</Button>
-        <Button className={classes.exportButton}>Export</Button>
-        <Button
-          color="primary"
-          variant="contained"
-        >
-          Add user
-        </Button>
+        
       </div>
       <div className={classes.row}>
         <SearchInput
           className={classes.searchInput}
           placeholder="Search user"
+          value={searchvalue}
+          onChange={handlevalue}
         />
       </div>
     </div>

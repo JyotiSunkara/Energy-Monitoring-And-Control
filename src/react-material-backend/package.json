@@ -20,6 +20,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.5.4",
     "mongoose": "^5.9.2",
+    "nodemailer": "^6.4.6",
     "nodemon": "^2.0.2",
     "python-shell": "^1.0.8"
   }

@@ -17,12 +17,13 @@ const UserList = () => {
   const classes = useStyles();
 
   const [users] = useState(mockData);
-
+  const [search,setsearch]=useState('')
+  console.log(search)
   return (
     <div className={classes.root}>
-      <UsersToolbar />
+      <UsersToolbar search={search} setsearch={setsearch}/>
       <div className={classes.content}>
-        <UsersTable users={users} />
+        <UsersTable users={users} search={search}/>
       </div>
     </div>
   );

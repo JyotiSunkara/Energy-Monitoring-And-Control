@@ -19,12 +19,12 @@ router.route('/graphdata').post((req,res)=>{
             // If JSON handle the data
             result=(JSON.parse(result))
             // const data = JSON.parse(Buffer.concat(chunks).toString());
-            console.log(result)
+            // console.log(result)
             res.json(result)
 
         } catch (e) {
             // Handle the error
-            console.log(result);
+            // console.log(result);
         }
     });
 })

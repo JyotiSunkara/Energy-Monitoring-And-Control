@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import { Chart } from 'react-chartjs-2';
 import { ThemeProvider } from '@material-ui/styles';
 import validate from 'validate.js';
-import NavBar from './components/navbar'
+// import NavBar from './components/navbar'
 
 import { chartjs } from './helpers';
 import theme from './theme';

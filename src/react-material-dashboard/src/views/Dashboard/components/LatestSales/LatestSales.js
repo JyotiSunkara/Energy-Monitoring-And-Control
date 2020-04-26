@@ -67,9 +67,9 @@ const LatestSales = props => {
 
   const changevalue =(response)=>{
     setres(response)
-    console.log("HELL")
-        console.log(response)
-        console.log(response.data[index][0])
+    // console.log("HELL")
+        // console.log(response)
+        // console.log(response.data[index][0])
         let newdata={
         labels: response.data[index][0],
         datasets: [
@@ -97,8 +97,8 @@ const LatestSales = props => {
         ]
       }
     
-      console.log("newdata")
-      console.log(newdata)
+      // console.log("newdata")
+      // console.log(newdata)
       setdata(
         newdata
       )
@@ -143,28 +143,28 @@ if(change==1){
     const info=''
     axios.post('http://localhost:5000/graph/graphdata',info)
     .then(response=>{
-      console.log("SHIT AS FUCK")
-      console.log(response.data)
+      // console.log("SHIT AS FUCK")
+      // console.log(response.data)
       // console.log(response.datasets[0].data)
-      console.log("FUCK")
+      // console.log("FUCK")
       changevalue(response)
       
     })
   },[])
   const classes = useStyles();
-  console.log("HELLO")
-  console.log(data)
+  // console.log("HELLO")
+  // console.log(data)
   // console.log(index)
 
   const handleChange = event => {
-    console.log("SHIT")
+    // console.log("SHIT")
     setindex(event.target.value);
-    console.log(index)
+    // console.log(index)
     if(index!=-1 && res!=-1 )
   {
-        console.log("HELL")
-        console.log(res)
-        console.log(res.data[index][0])
+        // console.log("HELL")
+        // console.log(res)
+        // console.log(res.data[index][0])
         let newdata={
         labels: res.data[index][0],
         datasets: [
@@ -227,7 +227,7 @@ if(change==1){
           
         </Select>
       </>}
-        title="Latest Sales"
+        title="Graphical Data"
       />
       
 
@@ -245,13 +245,7 @@ if(change==1){
       </CardContent>
       <Divider />
       <CardActions className={classes.actions}>
-        <Button
-          color="primary"
-          size="small"
-          variant="text"
-        >
-          Overview <ArrowRightIcon />
-        </Button>
+       
       </CardActions>
     </Card>
   );

@@ -101,7 +101,7 @@ const AccountProfile = props => {
   </div>*/}
       </CardContent>
       <Divider />
-      <CardActions>
+      {/*<CardActions>
         <Button
           className={classes.uploadButton}
           color="primary"
@@ -110,7 +110,7 @@ const AccountProfile = props => {
           Upload picture
         </Button>
         <Button variant="text">Remove picture</Button>
-      </CardActions>
+      </CardActions>*/}
     </Card>
   );
 };

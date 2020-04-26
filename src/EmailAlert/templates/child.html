@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Movies</h1>
+    <p>
+      <h1> This is mail with embedded CSS and HTML! </h1>
+      <img src="../images/image.jpg">
+      {% for movie in data['movies'] %} 
+      {%if movie['title']!="Terminator" %}
+      {{ movie['title'] }}<br>
+      <i>{{ movie['description'] }}</i>
+      <br>
+      <br>
+      {% endif %} 
+      {% endfor %}
+    </p>
+{% endblock %}

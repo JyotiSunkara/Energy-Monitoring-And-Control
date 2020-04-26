@@ -69,7 +69,7 @@ class modal extends Component {
   }
   settemp=(event,value)=>{
     console.log(value)
-    console.log(this.props)
+    
     this.setState({tempvalue:value})}
     
   
@@ -116,24 +116,24 @@ class modal extends Component {
 
   }
   permission(event){
-    console.log("HEE HASE DE  RINKIYA KE ") 
+    
     console.log(this.props.ac)
     var info={
       email:decoded.email,
       ac:this.props.ac
     }
-    console.log(info)
+
     axios.post('http://localhost:5000/request/add',info)
-    .then(res=>{console.log('Request has been sent')
-    })
+    .then(console.log("REQUEST ADDED"))
     .catch(err=>console.log("Some kind of error is there"))
     // this.props.close()
   }
   render(){
-    console.log("MY MY")
-    console.log(this.props.ac)
-    console.log(this.state.list.includes(this.props.ac))
-    console.log(decoded)
+    // console.log("MY MY")
+    // console.log(this.props)
+    // console.log(this.props.ac)
+    // console.log(this.state.list.includes(this.props.ac))
+    // console.log(decoded)
     if (this.state.isOn == "on"  && (this.state.list.includes(this.props.ac)==true||decoded.position=="admin" ) )
     {
         
@@ -163,6 +163,10 @@ class modal extends Component {
     on_off=
     <div>
     You dont have permission to control this AC
+    <br/>
+    AC Name: {this.props.ac_name}
+    <br/>
+    AC No: {this.props.ac}
     </div>
     set_button=
     <Button variant="secondary"  onClick={this.permission.bind(this)}>Ask permission</Button>

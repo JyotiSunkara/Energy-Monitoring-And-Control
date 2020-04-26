@@ -42,7 +42,7 @@ router.route('/off').post((req,res)=>{
         };
     
         console.log('finished');
-});
+        });
 });
 router.route('/change').post((req,res)=>{
     // var temp=req.body.temp

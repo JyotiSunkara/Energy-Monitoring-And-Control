@@ -37,6 +37,7 @@ const Topbar = props => {
     console.log(props)
     e.preventDefault()
     localStorage.removeItem('usertoken')
+    localStorage.removeItem("google")
     setshit(1)
     // history.go("/")
   }
@@ -55,12 +56,9 @@ const Topbar = props => {
       className={clsx(classes.root, className)}
     >                                                 
       <Toolbar>
-        <RouterLink to="/">
-          <img
-            alt="Logo"
-            src="/images/logos/logo--white.svg"
-          />
-        </RouterLink>
+        
+          
+        <b>KRB</b>
         <div className={classes.flexGrow} />
         <Hidden mdDown>
           <IconButton color="inherit">
@@ -69,7 +67,7 @@ const Topbar = props => {
               color="primary"
               variant="dot"
             >
-              <NotificationsIcon />
+            
             </Badge>
           </IconButton>
           <IconButton

@@ -31,12 +31,14 @@ var map = require('./routes/Map')
 var request=require('./routes/RequestAPI')
 var ACrouter=require('./routes/ACcontrol');
 var graph=require('./routes/GraphAPI')
+var SendEmail=require('./routes/EmailAPI')
 
 app.use('/users', Users)
 app.use('/control',ACrouter);
 app.use('/map',map)
 app.use('/request',request)
 app.use('/graph',graph)
+app.use('/email',SendEmail)
 
 app.listen(port, function() {
   console.log('Server is running on port: ' + port)
