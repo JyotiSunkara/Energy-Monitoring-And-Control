@@ -265,8 +265,7 @@ The user can register and login as a administrator which means he or she has acc
 
 ### Social Media Authentication
 
-Athentication via google accounts can be done to log into the dashboard.
-![Social.gif](./media/Social.gif)
+Athentication via google accounts can be done to log into the dashboard!
 
 ### HOBOlink graphs
 
